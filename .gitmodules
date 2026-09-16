@@ -1,0 +1,6 @@
+[submodule "assets/JS/csv.js"]
+	path = submodules/csv.js
+	url = https://github.com/rufuspollock/csv.js.git
+[submodule "submodules/csv.js"]
+	path = submodules/csv.js
+	url = https://github.com/rufuspollock/csv.js.git

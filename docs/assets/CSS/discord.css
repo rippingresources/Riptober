@@ -1,0 +1,206 @@
+:root {
+    --custom-group-spacing-start: 1.0625rem;
+    color-mix(in oklab,hsl(var(--red-400-hsl)/0.1) 100%,hsl(var(--custom-theme-base-color-hsl,0 0% 0%)/0.1) var(--custom-theme-base-color-amount,0%))
+}
+
+.discord {
+    padding: 3px;
+    border-radius: 6px;
+    background-color: #fff1;
+
+}
+
+#discord-inner {
+    font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #eff0f4;
+    padding: var(--custom-group-spacing-start) 0;
+    padding-bottom: 0.02px;
+
+    #channel {
+        padding: 0;
+        margin: 0;
+
+        .messages {
+            display: block;
+            margin-bottom: var(--custom-group-spacing-start);
+
+
+            .message {
+                display: block;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                padding-left: 72px;
+                padding-right: 24px;
+                position: relative;
+            }
+
+            .message[mentioned] {
+                background-color: #f8a30014;
+            }
+            .message[mentioned]:before {
+                background: #ea9800;
+                bottom: 0;
+                content: "";
+                display: block;
+                inset-inline-start: 0;
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                width: 2px;
+            }
+
+            .message:hover {
+                background-color: rgba(255,255,255,.03);
+            }
+
+            .message[mentioned]:hover {
+                background-color: #f8a3000a;
+            }
+
+            #message-contents, #header {
+                display: inherit;
+                line-height: 22px;
+                font-size: 16px;
+                object-fit: contain;
+                vertical-align: bottom;
+                white-space: break-spaces;
+
+                .emoji {
+                    margin-bottom: -5px;
+                    height: 22px;
+                }
+
+                .mention {
+                    background-color: #5865f23d;
+                    padding: 0 2px;
+                    color: #a9bbff;
+                    border-color: #a9bbff;
+                    border-radius: 3px;
+                    font-weight: 500;
+
+
+                    a {
+                        color: inherit;
+                        text-decoration: inherit;
+                    }
+
+                    #icon {
+                        height: 1em;
+                        margin-bottom: .2rem;
+                        margin-inline-end: 4px;
+                        vertical-align: middle;
+                        width: 1em;
+                    }
+
+                    transition: background-color 50ms ease-out, color 50ms ease-out;
+                }
+
+                .mention:hover {
+                    background-color: rgb(88, 101, 242);
+                    color: #fff;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                code {
+                    color: #e4e4e6;
+                    background: #5865f214;
+                    border: 1px solid #97979f33;
+                    font-size: .875rem;
+                    line-height: 1.125rem;
+                    text-indent: 0;
+                    white-space: pre-wrap;
+                    border-radius: 4px;
+                    display: block;
+                    overflow-x: auto;
+                    padding: .5em;
+                    text-adjust-size: none;
+                    font-family: "gg mono", "Source Code Pro", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+                    margin-bottom: -22px;
+                    margin-top: 6px;
+                }
+            }
+
+            #avatar {
+                border-radius: 50%;
+                /*inset-inline-start: 16px;*/
+                margin-top: 2px;
+                position: absolute;
+                margin-left: calc(16px - 72px);
+            }
+
+            #header {
+                position: relative;
+                margin: 0;
+
+                #username {
+                    font-weight: 500;
+                    margin-right: 4px;
+                }
+
+                #tag {
+
+                }
+
+                #timestamp {
+                    color: #81828a;
+                    font-size: .75rem;
+                    line-height: 1.375rem;
+                    vertical-align: baseline;
+                    margin-inline-start: .25rem;
+                    cursor: default;
+                    display: inline-block;
+                    font-weight: 500;
+                    height: 1.25rem;
+                    margin-left: 4px;
+                }
+            }
+        }
+
+        .divider {
+            align-items: center;
+            border-top: thin solid oklab(0.678923 0.00325415 -0.0111644 / 0.121569);
+            box-sizing: border-box;
+            display: flex;
+            flex: 0 0 auto;
+            height: 0;
+            justify-content: center;
+            pointer-events: none;
+            position: relative;
+            z-index: 1;
+            --divider-color: var(--background-feedback-notification);
+
+            inset-inline: auto;
+            position: relative;
+
+            margin-inline: 1rem .875rem;
+            margin-bottom: .5rem;
+            margin-top: 1.5rem;
+
+            span{
+                background: oklab(0.219511 0.00211037 -0.00744569); /*var(--background-gradient-chat, var(--background-base-lower));*/
+                border-radius: 8px;
+                color: oklab(0.677774 0.00174385 -0.0101101);
+                display: block;
+                flex: 0 0 auto;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 13px;
+                margin-top: -1px;
+                padding: 2px 4px;
+                padding-inline-start: 4px;
+            }
+        }
+    }
+}
+
+#discord-inner {
+    background-color: #1A1A1E;
+    width: fit-content;
+    min-width: 50vw;
+    border-radius: 5px;
+
+    transition: height 50ms ease-out, width 50ms ease-out;
+}
