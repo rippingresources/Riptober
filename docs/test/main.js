@@ -30,6 +30,10 @@ const msg1 = [
 `React with 🇼 to die instantly.`
 ]
 
+const text4 = `[Yo-Yo-Yoshi!](https://youtu.be/648fkNsFKoY) from Yoshi's Story uses EastWest - Phat + Phunky
+\`CD 1 -> Partition A -> VOL 7  4M -> 7 KIT [7 SNARE]\`
+\`CD 1 -> Partition D -> VOL 6  5M -> 25 KIT [25 KICK 3]\``
+
 
 // TEST END
 
@@ -39,3 +43,4 @@ out.append(renderMessages([text1], "751106291539378281"))
 out.append(renderMessages([text2], "96629205541859328"));
 out.append(renderMessages(msg1, "96629205541859328"));
 out.append(renderMessages([text3], "282673497002475520"));
+out.append(renderMessages([text4, "TODO: Fix Me"], "915974271921180714"));
