@@ -1,0 +1,21 @@
+#countdown {
+    font-family: 'Freckle Face', cursive;
+    font-size: 48pt;
+	text-align: center;
+	color: #ffffff;/*#0000bd;*/
+
+    text-shadow:
+    0 var(--title-shadow-distance) var(--title-shadow-blur) var(--title-shadow-color),
+    var(--title-shadow-distance) 0 var(--title-shadow-blur) var(--title-shadow-color),
+    var(--title-shadow-distance) var(--title-shadow-distance) var(--title-shadow-color);
+
+	font-weight: 100;
+	margin: 0;
+	position: absolute;
+    top: 50px;
+
+    /*
+    z-index: -2;
+    opacity: 0.4;
+    */
+}
