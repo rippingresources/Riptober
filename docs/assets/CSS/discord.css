@@ -1,6 +1,5 @@
 :root {
     --custom-group-spacing-start: 1.0625rem;
-    color-mix(in oklab,hsl(var(--red-400-hsl)/0.1) 100%,hsl(var(--custom-theme-base-color-hsl,0 0% 0%)/0.1) var(--custom-theme-base-color-amount,0%))
 }
 
 .discord {
@@ -173,7 +172,7 @@
 
         .divider {
             align-items: center;
-            border-top: thin solid oklab(0.678923 0.00325415 -0.0111644 / 0.121569);
+            border-top: thin solid #97979f1f;
             box-sizing: border-box;
             display: flex;
             flex: 0 0 auto;
@@ -192,9 +191,9 @@
             margin-top: 1.5rem;
 
             span{
-                background: oklab(0.219511 0.00211037 -0.00744569); /*var(--background-gradient-chat, var(--background-base-lower));*/
+                background: #1a1a1e; /*var(--background-gradient-chat, var(--background-base-lower));*/
                 border-radius: 8px;
-                color: oklab(0.677774 0.00174385 -0.0101101);
+                color: #96979e;
                 display: block;
                 flex: 0 0 auto;
                 font-size: 12px;
