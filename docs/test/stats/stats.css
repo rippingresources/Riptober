@@ -1,0 +1,33 @@
+:root {
+    --anim-time: 0.5s;
+}
+body {
+    display: block !important;
+    overflow: scroll;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.avatar {
+    flex: 1;le
+    min-width: 128px;
+    max-width: 128px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#profile {
+    background: #0006;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+
+
+    z-index: 2;
+    transition: all var(--anim-time);
+}

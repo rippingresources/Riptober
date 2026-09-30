@@ -1,4 +1,4 @@
-const DATE = new Date("2026-10-1 11:00 UTC")
+const DATE = new Date("October 1, 2026 11:00 UTC")
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -23,8 +23,11 @@ var timer = setInterval(() => {
     var str = "";
     var remaining = calcTimeTil();
 
-    remaining[1] = remaining[0]*7;
+    //remaining[1] = remaining[0]*7;
     remaining[0] = 0;
+
+    //remaining[2] = remaining[1]*24;
+    //remaining[1] = 0;
 
     var append = false;
     remaining.forEach((n) => {

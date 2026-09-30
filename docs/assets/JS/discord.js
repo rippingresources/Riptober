@@ -1,8 +1,8 @@
 //https://cdn.discordapp.com/emojis/700517552903684207.webp?size=40
 //https://cdn.discordapp.com/avatars/230307446957146112/19d3e960c1ae75222d7440f4539aebb1.webp?size=80
 
-const BASE_DOMAIN = "discordapp.com";
-const GUILD_ID = "579770995519520797";
+export const BASE_DOMAIN = "discordapp.com";
+export const GUILD_ID = "579770995519520797";
 
 const EMOJI_SIZE = 48;
 const EMOJI_INLINE_SIZE = 22;
@@ -21,70 +21,72 @@ const ICONS = {
 
 // // // // // //
 
-marked.use({
-    extensions: [
-        {
-            name: 'discord-emoji',
-            level: 'inline',
-            start(src) { return src.match(REGEX_EMOJI)?.index; },
-            tokenizer(src, tokens) {
-                const match = new RegExp(`^${REGEX_EMOJI.source}`, 'i').exec(src);
-                if (!match) return false;
-                const size = EMOJI_INLINE_SIZE;//match[0]==src ? EMOJI_SIZE : EMOJI_INLINE_SIZE;
-                const alt = match[1]
-                const id = match[2]
-                return {
-                    type: 'discord-emoji',
-                    raw: match[0],
-                    emoji: `https://cdn.${BASE_DOMAIN}/emojis/${id}.webp?size=${size*2}`,
-                    name: alt,
-                    size: size
+export function initMarkedExtentions() {
+    marked.use({
+        extensions: [
+            {
+                name: 'discord-emoji',
+                level: 'inline',
+                start(src) { return src.match(REGEX_EMOJI)?.index; },
+               tokenizer(src, tokens) {
+                   const match = new RegExp(`^${REGEX_EMOJI.source}`, 'i').exec(src);
+                   if (!match) return false;
+                   const size = EMOJI_INLINE_SIZE;//match[0]==src ? EMOJI_SIZE : EMOJI_INLINE_SIZE;
+                   const alt = match[1]
+                   const id = match[2]
+                   return {
+                       type: 'discord-emoji',
+                       raw: match[0],
+                       emoji: `https://cdn.${BASE_DOMAIN}/emojis/${id}.webp?size=${size*2}`,
+                       name: alt,
+                       size: size
 
-                }
+                   }
+
+               },
+               renderer(token) {
+
+                   return `<img alt="${token.name}" src="${token.emoji}" height="${token.size}" class="emoji">`;
+               },
 
             },
-            renderer(token) {
+            {
+                name: 'discord-mention',
+                level: 'inline',
+                start(src) { return src.match(REGEX_BASIC)?.index; },
+               tokenizer(src, tokens) {
+                   const match = new RegExp(`^${REGEX_BASIC.source}`, 'i').exec(src);
+                   if (!match) return false;
+                   const mentionType = match[1]
+                   const id = match[2]
+                   return {
+                       type: 'discord-mention',
+                       raw: match[0],
+                       id: id,
+                       mentionType: mentionType,
+                   }
 
-                return `<img alt="${token.name}" src="${token.emoji}" height="${token.size}" class="emoji">`;
-            },
+               },
+               renderer(token) {
+                   switch (token.mentionType) {
+                       case '#': // Channel
+                           return `<span class="mention">${ICONS.Hash}<a href="discord://-/channels/${GUILD_ID}/${token.id}">${channels[token.id] || "Unknown"}</a></span>`;
+                           break;
+                       case '@&':
+                           return `<span class="mention" style="background-color: ${roles[token.id]?.color}1a; color: ${roles[token.id]?.color}; ">@${roles[token.id]?.name || "Unknown Role"}</span>`;
+                           break;
+                       case '@':
+                           return `<span class="mention">@${members[token.id]?.server_nick || "Unknown User"}</span>`;
+                           break;
+                       default:
+                           return `<span class="mention">${token.raw}</span>`;
+                   }
+               },
 
-        },
-        {
-            name: 'discord-mention',
-            level: 'inline',
-            start(src) { return src.match(REGEX_BASIC)?.index; },
-           tokenizer(src, tokens) {
-               const match = new RegExp(`^${REGEX_BASIC.source}`, 'i').exec(src);
-               if (!match) return false;
-               const mentionType = match[1]
-               const id = match[2]
-               return {
-                   type: 'discord-mention',
-                   raw: match[0],
-                   id: id,
-                   mentionType: mentionType,
-               }
-
-           },
-           renderer(token) {
-               switch (token.mentionType) {
-                   case '#': // Channel
-                       return `<span class="mention">${ICONS.Hash}<a href="discord://-/channels/${GUILD_ID}/${token.id}">${channels[token.id] || "Unknown"}</a></span>`;
-                       break;
-                   case '@&':
-                       return `<span class="mention" style="background-color: ${roles[token.id]?.color}1a; color: ${roles[token.id]?.color}; ">@${roles[token.id]?.name || "Unknown Role"}</span>`;
-                       break;
-                   case '@':
-                       return `<span class="mention">@${members[token.id]?.server_nick || "Unknown User"}</span>`;
-                       break;
-                   default:
-                       return `<span class="mention">${token.raw}</span>`;
-                }
-           },
-
-        }
-    ]
-});
+            }
+        ]
+    });
+}
 
 // // // // // //
 
@@ -154,3 +156,4 @@ export function renderMessages(messages, uid, timestamp = '1970-01-01T00:00:00.0
 
     return $('<il class="messages"></il>').append(renderedMessages);
 };
+initMarkedExtentions();
