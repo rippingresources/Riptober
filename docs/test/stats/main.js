@@ -13,7 +13,12 @@ for (let [id, data] of Object.entries(members)) {
     const name = data.server_nick || data.nick || data.username || "Unknown User";
 
 
-    var user = $(`<img class="avatar" alt="${name}" height="128" src="${pfp}" />`);;
+    //var user = $(`<img class="avatar" alt="${name}" height="128" src="${pfp}" />`);
+    var user = new Image(128);
+    user.onerror = () => { user.src = `/assets/Images/discord_avatars/fallback.png`; };
+    user.src = pfp;
+    user.alt = name;
+    user.className = "avatar";
 
 
     CONTAINER.append(user);
