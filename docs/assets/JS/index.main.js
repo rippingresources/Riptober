@@ -1,10 +1,15 @@
 import {renderMessages, members} from '/assets/JS/discord.js';
 const frame = $(".discord #channel");
 
-frame.append(renderMessages([`Come back later >.>`, `...or attempt this old cue`], "751106291539378281", "2026-09-16T04:25:47.680Z"))
+//TEMP
+const cue = '```Day 1 - Dawn```\n\n<@&1023989653033980076>'
+
+
+frame.append(renderMessages([cue], "1057807052669460480", "2026-10-01T11:07:13.256Z"))
 
 //
 
+/*
 CSV.fetch({url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTvDewFfwojvKHEOF12J1aeT4Ph21e4DeJJNpcjTJJKXwjM7vBdQ0FReciPS5Ou81-7ja_FQ_-G6gze/pub?output=csv'}).done(function(dataset) {
 
     const day =  Math.floor(Math.random()*(dataset.fields.length-1))+1
@@ -22,3 +27,5 @@ CSV.fetch({url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTvDewFfwojvKHE
         frame.append(renderMessages(msgs, ruid, `${year+2020}-10-${day.toString().padStart(2, "0")}T11:00:00.000Z`));
     });
 });
+*/
+
