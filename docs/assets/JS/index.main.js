@@ -2,7 +2,7 @@ import {renderMessages, members} from '/assets/JS/discord.js';
 const frame = $(".discord #channel");
 
 //TEMP
-const cue = '```Day 2 - Bear```\n\n<@&1023989653033980076>'
+const cue = '```Day 2 - Bunny```\n\n<@&1023989653033980076>'
 
 
 frame.append(renderMessages([cue], "1057807052669460480", "2026-10-02T11:00:29.293Z"))
