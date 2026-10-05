@@ -2,10 +2,10 @@ import {renderMessages, members} from '/assets/JS/discord.js';
 const frame = $(".discord #channel");
 
 //TEMP
-const cue = '```Day 2 - Bunny```\n\n<@&1023989653033980076>'
+const cue = 'hey guys! sasha\'s currently resting so she gave me the opportunity to post the prompt for today\n\nanyways here\'s the prompt cuz i cant type anymore idk why theres a 6 hour wait mode:\n\`\`\`Day 4 - Sad\`\`\`\n@riptoberpings (i cant ping sasha forgot to give me pinging permission)'
 
 
-frame.append(renderMessages([cue], "1057807052669460480", "2026-10-02T11:00:29.293Z"))
+frame.append(renderMessages([cue], "710373509410324500", "2026-10-02T11:02:29.293Z"))
 
 //
 
